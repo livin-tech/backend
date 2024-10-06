@@ -1,4 +1,4 @@
-import { type IReminder, ReminderModel } from "@/models/reminder.model";
+import { type IReminder, ReminderModel } from "../models/reminder.model";
 
 export class ReminderRepository {
   // Create a new reminder

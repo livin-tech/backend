@@ -1,4 +1,4 @@
-import { type IUser, UserModel } from "@/models/user.model";
+import { type IUser, UserModel } from "../models/user.model";
 
 // Define a custom User repository
 export class UserRepository {

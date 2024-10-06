@@ -1,9 +1,9 @@
 import type { Request, Response } from "express";
 import { z } from "zod";
 
-// Adjust the path as needed
-import { ReminderRepository } from "@/repository/reminder.repository";
 import logger from "../config/logger";
+// Adjust the path as needed
+import { ReminderRepository } from "../repository/reminder.repository";
 
 // Define the reminder schema with specific types and validations
 const reminderSchema = z.object({

@@ -1,4 +1,4 @@
-import { type ITask, TaskModel } from "@/models/task.model";
+import { type ITask, TaskModel } from "../models/task.model";
 
 export class TaskRepository {
   // Create a new task

@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import { z } from "zod";
 
-import { UserRepository } from "@/repository/user.repository";
 import logger from "../config/logger";
+import { UserRepository } from "../repository/user.repository";
 
 // Define Zod schema for user validation
 const userSchema = z.object({

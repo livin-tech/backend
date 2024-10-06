@@ -1,9 +1,9 @@
 import type { Request, Response } from "express";
 import { z } from "zod";
 
-// Adjust the path as needed
-import { PropertyRepository } from "@/repository/property.repository";
 import logger from "../config/logger";
+// Adjust the path as needed
+import { PropertyRepository } from "../repository/property.repository";
 
 // Define Zod schema for property validation
 const propertySchema = z.object({
