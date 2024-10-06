@@ -10,7 +10,9 @@ COPY package*.json ./
 RUN npm ci
 
 # Bundle app source
-COPY . .
+COPY ./src .
+
+COPY .env .
 
 # Build the TypeScript files
 RUN npm run build
