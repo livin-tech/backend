@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import { z } from "zod";
 
-import { TaskType } from "@/models/task.model";
 import logger from "../config/logger";
+import { TaskType } from "../models/task.model";
 import { TaskRepository } from "../repository/task.repository";
 
 // Define Zod schema for task validation
