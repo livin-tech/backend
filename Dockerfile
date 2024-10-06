@@ -12,7 +12,9 @@ RUN npm ci
 # Bundle app source
 COPY ./src .
 
-COPY ./.env .
+ENV NODE_ENV=production
+ENV PORT=8080
+ENV MONGODB_URI=mongodb+srv://fahadashraf9612:JN2FfuxlLjogDnfG@cluster0.v5nfpvl.mongodb.net/liviin_db?retryWrites=true&w=majority&appName=Cluster0
 
 # Build the TypeScript files
 RUN npm run build
