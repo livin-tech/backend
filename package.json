@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/main.ts | pino-pretty",
     "build": "tsup",
-    "start": "node dist/index.js",
+    "start": "node dist/main.js",
     "clean": "rimraf dist coverage",
     "lint": "biome check src/",
     "lint:fix": "biome check src/ --fix",
