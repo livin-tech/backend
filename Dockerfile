@@ -12,7 +12,7 @@ RUN npm ci
 # Bundle app source
 COPY ./src .
 
-COPY .env .
+COPY ./.env .
 
 # Build the TypeScript files
 RUN npm run build
