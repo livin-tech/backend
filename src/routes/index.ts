@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import itemRoutes from "@/routes/item.routes";
-import materialRoutes from "@/routes/material.routes";
 import { verifyToken } from "../middleware";
+import itemRoutes from "../routes/item.routes";
+import materialRoutes from "../routes/material.routes";
 import propertyRoutes from "./property.route";
 import reminderRoutes from "./reminder.route";
 import taskRoutes from "./task.route";
