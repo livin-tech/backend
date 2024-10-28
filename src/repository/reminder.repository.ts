@@ -19,7 +19,9 @@ export class ReminderRepository {
 
   // Update a reminder
   async updateReminder(reminderId: string, updateData: Partial<IReminder>): Promise<IReminder | null> {
-    return ReminderModel.findByIdAndUpdate(reminderId, updateData, { new: true }).exec();
+    return ReminderModel.findByIdAndUpdate(reminderId, updateData, {
+      new: true,
+    }).exec();
   }
 
   // Delete a reminder

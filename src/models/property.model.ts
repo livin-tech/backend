@@ -75,15 +75,15 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   price: {
     type: Number,
-    required: true,
+    required: false,
   },
   location: {
     type: String,
-    required: true,
+    required: false,
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

@@ -24,11 +24,11 @@ const reminderSchema: Schema<IReminder> = new mongoose.Schema({
   },
   lastMaintenance: {
     type: Date,
-    required: true,
+    required: false,
   },
   date: {
     type: Date,
-    required: true,
+    required: false,
   },
 });
 

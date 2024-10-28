@@ -10,14 +10,12 @@ const reminderSchema = z.object({
   category: z.string().min(1, "Category is required"),
   selectedMaterial: z.string().min(1, "Selected material is required"),
   selectedFrequency: z.enum(["daily", "weekly", "monthly", "yearly"], {
-    errorMap: () => ({ message: "Selected frequency must be one of: daily, weekly, monthly, yearly" }),
+    errorMap: () => ({
+      message: "Selected frequency must be one of: daily, weekly, monthly, yearly",
+    }),
   }),
-  lastMaintenance: z.date().refine((date) => !Number.isNaN(date.getTime()), {
-    message: "Last maintenance must be a valid date",
-  }),
-  date: z.date().refine((date) => !Number.isNaN(date.getTime()), {
-    message: "Date must be a valid date",
-  }),
+  lastMaintenance: z.string().optional(),
+  date: z.string().optional(),
 });
 
 export class ReminderController {
@@ -32,7 +30,9 @@ export class ReminderController {
       return res.status(201).json(reminder);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        logger.error("Validation error during reminder creation", { errors: error.errors });
+        logger.error("Validation error during reminder creation", {
+          errors: error.errors,
+        });
         return res.status(400).json({ message: "Validation Error", errors: error.errors });
       }
       logger.error("Error creating reminder", { error });
@@ -81,7 +81,9 @@ export class ReminderController {
       return res.json(reminder);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        logger.error("Validation error during reminder update", { errors: error.errors });
+        logger.error("Validation error during reminder update", {
+          errors: error.errors,
+        });
         return res.status(400).json({ message: "Validation Error", errors: error.errors });
       }
       logger.error("Error updating reminder", { error });

@@ -20,9 +20,12 @@ const propertySchema = z.object({
   hasBalcony: z.boolean(),
   hasGarden: z.boolean(),
   title: z.string().min(1, "Title is required"),
-  description: z.string().min(1, "Description is required"),
-  price: z.number().positive("Price must be a positive number"),
-  location: z.string().min(1, "Location is required"),
+  description: z.string().optional(),
+  // .min(1, "Description is required"),
+  price: z.number().optional(),
+  // .positive("Price must be a positive number"),
+  location: z.string().optional(),
+  // .min(1, "Location is required"),
   owner: z.string().length(24, "Owner ID must be a valid ObjectId"),
 });
 
@@ -38,7 +41,9 @@ export class PropertyController {
       return res.status(201).json(property);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        logger.error("Validation error during property creation", { errors: error.errors });
+        logger.error("Validation error during property creation", {
+          errors: error.errors,
+        });
         return res.status(400).json({ message: "Validation Error", errors: error.errors });
       }
       logger.error("Error creating property", { error });
@@ -87,7 +92,9 @@ export class PropertyController {
       return res.json(property);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        logger.error("Validation error during property update", { errors: error.errors });
+        logger.error("Validation error during property update", {
+          errors: error.errors,
+        });
         return res.status(400).json({ message: "Validation Error", errors: error.errors });
       }
       logger.error("Error updating property", { error });
