@@ -26,10 +26,11 @@ export const createMaterial = async (req: Request, res: Response) => {
 
     const { name, description } = result.data;
 
-    // Create a new material
+    // Create a new material using the repository
     const newMaterial = await materialRepository.createMaterial({ name, description });
     return res.status(201).json(newMaterial);
   } catch (error) {
+    console.error(error); // For debugging purposes
     return res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -40,6 +41,7 @@ export const getAllMaterials = async (_req: Request, res: Response) => {
     const materials = await materialRepository.getAllMaterials();
     return res.status(200).json(materials);
   } catch (error) {
+    console.error(error); // For debugging purposes
     return res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -47,7 +49,7 @@ export const getAllMaterials = async (_req: Request, res: Response) => {
 // Controller: Get Material by ID
 export const getMaterialById = async (req: Request, res: Response) => {
   try {
-    const material = await materialRepository.getMaterialById(req.params.id);
+    const material = await materialRepository.getMaterialById(req.params.id); // Get material by ID
 
     if (!material) {
       return res.status(404).json({ error: "Material not found" });
@@ -55,6 +57,7 @@ export const getMaterialById = async (req: Request, res: Response) => {
 
     return res.status(200).json(material);
   } catch (error) {
+    console.error(error); // For debugging purposes
     return res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -80,6 +83,7 @@ export const updateMaterial = async (req: Request, res: Response) => {
 
     return res.status(200).json(material);
   } catch (error) {
+    console.error(error); // For debugging purposes
     return res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -95,6 +99,7 @@ export const deleteMaterial = async (req: Request, res: Response) => {
 
     return res.status(200).json({ message: "Material deleted successfully" });
   } catch (error) {
+    console.error(error); // For debugging purposes
     return res.status(500).json({ error: "Internal server error" });
   }
 };

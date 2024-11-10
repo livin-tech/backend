@@ -5,13 +5,13 @@ import { ItemModel } from "../models/item.model"; // Import your Item model
 // Zod schema for item validation
 const createItemSchema = z.object({
   name: z.string().min(1, "Item name is required"),
-  material: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
+  materials: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
 });
 
 // Zod schema for item update validation
 const updateItemSchema = z.object({
   name: z.string().optional(),
-  material: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
+  materials: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
 });
 
 // Controller: Create an Item
@@ -62,7 +62,7 @@ export const updateItem = async (req: Request, res: Response) => {
 export const getAllItems = async (_req: Request, res: Response) => {
   try {
     // Get all items from the database
-    const items = await ItemModel.find().populate("material"); // Populate materials field
+    const items = await ItemModel.find().populate("materials"); // Populate materials field
     return res.status(200).json(items); // Return items
   } catch (error) {
     return res.status(500).json({ error: "Internal server error" });
@@ -73,7 +73,7 @@ export const getAllItems = async (_req: Request, res: Response) => {
 export const getItemById = async (req: Request, res: Response) => {
   try {
     // Get item by ID and populate materials
-    const item = await ItemModel.findById(req.params.id).populate("material");
+    const item = await ItemModel.findById(req.params.id).populate("materials");
     if (!item) {
       return res.status(404).json({ error: "Item not found" });
     }
