@@ -1,4 +1,4 @@
-import { CATEGORY, type IItem, ItemModel } from "../models/item.model";
+import { type IItem, ItemModel } from "../models/item.model";
 import { Material } from "../models/material.model";
 
 export class ItemRepository {

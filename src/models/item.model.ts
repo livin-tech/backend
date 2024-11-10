@@ -1,20 +1,13 @@
-import { Schema, Types, model } from "mongoose";
+import { Schema, type Types, model } from "mongoose";
 
-export interface IItem {
+export interface IItem extends Document {
   name: string;
-  category: string;
-  materials: Types.ObjectId[];
+  material: Types.ObjectId[];
 }
 
-export enum CATEGORY {
-  CLEANING = "CLEANING",
-  MAINTENANCE = "MAINTENANCE",
-}
-
-const itemSchema = new Schema({
+const itemSchema = new Schema<IItem>({
   name: { type: String, required: true },
-  category: { type: String, enum: CATEGORY, required: true },
-  materials: [{ type: Types.ObjectId, ref: "Material" }],
+  material: [{ type: Schema.Types.ObjectId, ref: "Material" }],
 });
 
 export const ItemModel = model("Item", itemSchema);

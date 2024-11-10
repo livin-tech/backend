@@ -1,19 +1,13 @@
-import { Schema, Types, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
-export interface IMaterial {
+export interface IMaterial extends Document {
   name: string;
-  item: Types.ObjectId;
-  priority: number;
-  frequency: string;
   description?: string;
 }
 
-const materialSchema = new Schema({
+const materialSchema = new Schema<IMaterial>({
   name: { type: String, required: true },
-  item: { type: Types.ObjectId, ref: "Item", required: true },
-  priority: { type: Number, required: true },
-  frequency: { type: String, required: true },
-  description: String,
+  description: { type: String, required: false },
 });
 
 export const Material = model("Material", materialSchema);
