@@ -12,9 +12,8 @@ export interface IReminder extends Document {
   material: Types.ObjectId;
   itemQuantity: number;
   selectedFrequency: number;
-  lastMaintenance: Date | null;
-  startDate: Date;
-  createdAt: Date;
+  lastMaintenance: string | null;
+  startDate: string;
 }
 
 const reminderSchema = new Schema<IReminder>(
@@ -50,16 +49,12 @@ const reminderSchema = new Schema<IReminder>(
       min: 1, // Example: frequency in days (e.g., every 30 days)
     },
     lastMaintenance: {
-      type: Date,
+      type: String,
       default: null, // Can be null if no maintenance has been done
     },
     startDate: {
-      type: Date,
+      type: String,
       required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
     },
   },
   { timestamps: true },
