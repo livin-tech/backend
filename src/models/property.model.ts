@@ -90,6 +90,14 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
     ref: "User", // Reference to the User model
     required: true,
   },
+  managerName: {
+    type: String,
+    required: false,
+  },
+  managerPhone: {
+    type: String,
+    required: false,
+  },
 });
 
 export const PropertyModel = mongoose.model<IProperty>("Property", propertySchema);

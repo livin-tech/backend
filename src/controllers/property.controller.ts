@@ -27,6 +27,8 @@ const propertySchema = z.object({
   location: z.string().optional(),
   // .min(1, "Location is required"),
   owner: z.string().length(24, "Owner ID must be a valid ObjectId"),
+  managerName: z.string().optional(),
+  managerPhone: z.string().optional(),
 });
 
 export class PropertyController {

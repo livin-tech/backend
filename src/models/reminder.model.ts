@@ -14,6 +14,7 @@ export interface IReminder extends Document {
   selectedFrequency: number;
   lastMaintenance: string | null;
   startDate: string;
+  description?: string;
 }
 
 const reminderSchema = new Schema<IReminder>(
@@ -55,6 +56,10 @@ const reminderSchema = new Schema<IReminder>(
     startDate: {
       type: String,
       required: true,
+    },
+    description: {
+      type: String,
+      required: false,
     },
   },
   { timestamps: true },

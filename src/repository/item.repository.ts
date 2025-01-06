@@ -18,8 +18,17 @@ export class ItemRepository {
     return ItemModel.find().populate("materials");
   }
 
-  async getAllItemsByCategory(category: string): Promise<IItem[]> {
-    return ItemModel.find({ category: category }).populate("materials");
+  // Get all items by category
+  async getAllItemsByCategory(category: "CLEANING" | "MAINTENANCE"): Promise<IItem[]> {
+    return ItemModel.find({ category }).populate("materials");
+  }
+
+  // Paginated item retrieval
+  async getPaginatedItems(page: number, limit: number): Promise<{ items: IItem[]; total: number }> {
+    const skip = (page - 1) * limit;
+    const items = await ItemModel.find().populate("materials").skip(skip).limit(limit);
+    const total = await ItemModel.countDocuments();
+    return { items, total };
   }
 
   // Update an item

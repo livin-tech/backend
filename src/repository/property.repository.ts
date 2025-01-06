@@ -14,6 +14,29 @@ export class PropertyRepository {
 
   // Get all properties
   async getAllProperties(): Promise<IProperty[]> {
+    const properties = await PropertyModel.aggregate([
+      {
+        // Look up reminders for each property
+        $lookup: {
+          from: "reminders", // The name of the Reminder collection in MongoDB
+          localField: "_id",
+          foreignField: "property",
+          as: "reminders",
+        },
+      },
+      {
+        // Add a field 'reminderCount' that stores the count of reminders for each property
+        $addFields: {
+          reminderCount: { $size: "$reminders" },
+        },
+      },
+      {
+        // Optionally, exclude the full 'reminders' array if not needed in the result
+        $project: {
+          reminders: 0,
+        },
+      },
+    ]);
     return PropertyModel.find().populate("owner");
   }
 
