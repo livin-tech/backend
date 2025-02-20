@@ -3,6 +3,7 @@ import {
   createItem,
   deleteItem,
   getAllItems,
+  getCategoriesWithItems,
   getItemById,
   getItemsByCategory,
   getPaginatedItems,
@@ -22,6 +23,8 @@ router.get("/paginated", getPaginatedItems);
 
 // Route to get items by category (CLEANING or MAINTENANCE)
 router.get("/category/:category", getItemsByCategory);
+
+router.get("/groupByCategory", getCategoriesWithItems);
 
 // Route to get an item by ID
 router.get("/:id", getItemById);

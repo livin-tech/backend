@@ -10,6 +10,7 @@ export interface IItem extends Document {
 const itemSchema = new Schema<IItem>({
   name: { type: String, required: true },
   category: { type: String, required: true },
+  subCategory: { type: String, required: false },
   image: { type: String, required: true },
   materials: [{ type: Schema.Types.ObjectId, ref: "Material" }],
 });
