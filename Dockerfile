@@ -12,6 +12,8 @@ RUN npm ci
 # Bundle app source
 COPY ./src ./src
 
+COPY ./tsup.config.ts ./tsup.config.ts
+
 ENV NODE_ENV=production
 ENV PORT=8080
 ENV MONGODB_URI=mongodb+srv://liviin-tech:JiQ1wob1mCJ8CuRL@liviin.s57dt.mongodb.net/test?retryWrites=true&w=majority&appName=liviin
