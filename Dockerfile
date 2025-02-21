@@ -14,7 +14,7 @@ COPY ./src ./src
 
 ENV NODE_ENV=production
 ENV PORT=8080
-ENV MONGODB_URI=mongodb+srv://fahadashraf9612:JN2FfuxlLjogDnfG@cluster0.v5nfpvl.mongodb.net/liviin_db?retryWrites=true&w=majority&appName=Cluster0
+ENV MONGODB_URI=mongodb+srv://liviin-tech:JiQ1wob1mCJ8CuRL@liviin.s57dt.mongodb.net/test?retryWrites=true&w=majority&appName=liviin
 
 # Build the TypeScript files
 RUN npm run build
