@@ -143,7 +143,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         subCategory: "LIVING ROOM",
         description:
           "The furniture that we use daily in our living area must be cared for in very specific ways and at very precise times. Only in this way can you guarantee that it is in perfect condition and that the different materials are conserved in an ideal manner.",
-        image: `https://${req.get("host")}/assets/bathroom.png`,
+        image: `https://${req.get("host")}/assets/living.png`,
       },
       {
         id: Math.random().toString(36).substring(2, 15),
@@ -152,7 +152,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         subCategory: "DINNING ROOM",
         description:
           "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it. Therefore, it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
-        image: `https://${req.get("host")}/assets/bathroom.png`,
+        image: `https://${req.get("host")}/assets/dinning.png`,
       },
     ];
     const toReturn = [];
