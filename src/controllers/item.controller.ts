@@ -154,6 +154,15 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
           "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it. Therefore, it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
         image: `https://${req.get("host")}/assets/dinning.png`,
       },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Hallway",
+        category: "CLEANING",
+        subCategory: "HALLWAY",
+        description:
+          "The hallways or access corridors to the most private areas of our house are normally overlooked in deep cleaning. This transit area has high traffic, so it must be cared for periodically.",
+        image: `https://${req.get("host")}/assets/hallway.png`,
+      },
     ];
     const toReturn = [];
     let items = await itemRepository.getAllItems();
