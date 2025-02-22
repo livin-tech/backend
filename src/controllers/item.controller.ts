@@ -122,29 +122,54 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         id: Math.random().toString(36).substring(2, 15),
         name: "Maintenance",
         category: "MAINTENANCE",
+        subCategory: "MAINTENANCE",
         description:
           "The maintenance of floors, windows, electronic equipment, air conditioning and appliances should be done preventively. If we do it on a regular basis, we will guarantee not only better operation but a longer useful life.",
-        image: `${req.protocol}://${req.get("host")}/assets/maintenance.png`,
+        image: `https://${req.get("host")}/assets/maintenance.png`,
       },
       {
         id: Math.random().toString(36).substring(2, 15),
         name: "Deep Cleaning",
         category: "CLEANING",
+        subCategory: "DEEP CLEANING",
         description:
           "Deep cleaning is something we many times take for granted, since we only focus on daily cleaning. However, it is very important to keep in mind that many areas of our home are not cleaned on a regular basis, and this is why after a certain time the appearance of certain areas of the house starts to look damaged.",
-        image: `${req.protocol}://${req.get("host")}/assets/cleaning.png`,
+        image: `https://${req.get("host")}/assets/cleaning.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Living Room",
+        category: "CLEANING",
+        subCategory: "LIVING ROOM",
+        description:
+          "The furniture that we use daily in our living area must be cared for in very specific ways and at very precise times. Only in this way can you guarantee that it is in perfect condition and that the different materials are conserved in an ideal manner.",
+        image: `https://${req.get("host")}/assets/bathroom.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Dinning Room",
+        category: "CLEANING",
+        subCategory: "DINNING ROOM",
+        description:
+          "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it. Therefore, it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
+        image: `https://${req.get("host")}/assets/bathroom.png`,
       },
     ];
     const toReturn = [];
+    let items = await itemRepository.getAllItems();
     for (const category of categories) {
-      const items = await itemRepository.getAllItemsByCategory(category.category as "CLEANING" | "MAINTENANCE");
       if (items.length > 0) {
+        const itemsToPush = items.filter((item) =>
+          item.subCategory ? category.subCategory === item.subCategory : category.category === item.category,
+        );
         toReturn.push({
           ...category,
-          items,
+          items: itemsToPush,
         });
+        items = items.filter((item, index) => !itemsToPush.map((x) => x._id).includes(item._id));
       }
     }
+
     return res.status(200).json(toReturn);
   } catch (error) {
     console.log(error);

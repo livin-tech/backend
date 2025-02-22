@@ -3,6 +3,7 @@ import { Schema, type Types, model } from "mongoose";
 export interface IItem extends Document {
   name: string;
   category: "CLEANING" | "MAINTENANCE";
+  subCategory?: string;
   image: string;
   materials: Types.ObjectId[];
 }
