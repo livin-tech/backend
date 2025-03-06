@@ -163,6 +163,42 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
           "The hallways or access corridors to the most private areas of our house are normally overlooked in deep cleaning. This transit area has high traffic, so it must be cared for periodically.",
         image: `https://${req.get("host")}/assets/hallway.png`,
       },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Family Room",
+        category: "CLEANING",
+        subCategory: "FAMILY ROOM",
+        description:
+          "THE FAMILY ROOM IS AN AREA OF HIGH TRAFFIC AND HOME USE, WHERE YOU SPEND LONG PERIODS OF TIME IN VARIOUS ACTIVITIES, THIS AREA SUFFERS GREATER DAMAGES SINCE IT IS ALMOST ALWAYS DESIGNED FOR EVERYDAY LIFE WITHOUT MAJOR RESTRICTIONS. THE CARE WE GIVE TO THIS AREA WILL ENSURE THAT IT NEVER LOOKS DAMAGED COMPARED TO THE REST OF OUR HOME.",
+        image: `https://${req.get("host")}/assets/family-room.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Bed Room",
+        category: "CLEANING",
+        subCategory: "BED ROOM",
+        description:
+          "BEDROOMS ARE SPACES DESIGNED FOR REST AND THEREFORE THEY MUST BE CLEAN AND ORGANIZED TO PROVIDE THAT THE BODY HAS A RESTORABLE AND HEALTHY SLEEP. THE DEEP CLEANING TIMES IN THIS AREA ARE VERY IMPORTANT SINCE WE REMAIN IN IT FOR LONG PERIODS OF TIME EVERY NIGHT.",
+        image: `https://${req.get("host")}/assets/bed-room.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Bathroom",
+        category: "CLEANING",
+        subCategory: "BATHROOM",
+        description:
+          "BATHROOMS ARE CLEANING AREAS THAT MANY THINK THAT BECAUSE THEY ARE CLEANED DAILY THEY SHOULD NOT BE DONE IN A DEEPER WAY. IN THESE AREAS WE SHOULD TAKE GREATER CARE SINCE THEY ARE AREAS WHERE BACTERIA AND OTHER GERMES INVISIBLE TO OUR EYES ARE PRESENT.",
+        image: `https://${req.get("host")}/assets/bathroom.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "Kitchen",
+        category: "CLEANING",
+        subCategory: "KITCHEN",
+        description:
+          "THE KITCHEN IS A COMPLEX AREA, FULL OF LARGE AND SMALL APPLIANCES BUT IT IS ALSO THE PLACE WHERE WE PREPARE OUR DAILY FOOD. THIS AREA, DUE TO ITS HIGH TRAFFIC AND VARIETY OF MATERIALS AND PRODUCTS, CAN BE OVERWHELMING WHEN IT IS DEEP CLEANING. IT IS VITAL TO ESTABLISH A CARE ROUTINE IN THIS AREA OF THE HOME SO THAT IT LOOKS AND FUNCTIONS PROPERLY.",
+        image: `https://${req.get("host")}/assets/kitchen.png`,
+      },
     ];
     const toReturn = [];
     let items = await itemRepository.getAllItems();
@@ -171,9 +207,17 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         const itemsToPush = items.filter((item) =>
           item.subCategory ? category.subCategory === item.subCategory : category.category === item.category,
         );
+        itemsToPush.sort((a, b) => a.order - b.order);
         toReturn.push({
           ...category,
-          items: itemsToPush,
+          items: itemsToPush.map((item) => ({
+            name: item.name,
+            category: item.category,
+            subCategory: item.subCategory,
+            image: `https://${req.get("host")}/assets/${item.image}`,
+            materials: item.materials,
+            order: item.order,
+          })),
         });
         items = items.filter((item, index) => !itemsToPush.map((x) => x._id).includes(item._id));
       }

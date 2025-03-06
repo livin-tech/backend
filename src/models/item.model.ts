@@ -6,6 +6,7 @@ export interface IItem extends Document {
   subCategory?: string;
   image: string;
   materials: Types.ObjectId[];
+  order: string;
 }
 
 const itemSchema = new Schema<IItem>({
@@ -14,6 +15,7 @@ const itemSchema = new Schema<IItem>({
   subCategory: { type: String, required: false },
   image: { type: String, required: true },
   materials: [{ type: Schema.Types.ObjectId, ref: "Material" }],
+  order: { type: Number, required: false },
 });
 
 export const ItemModel = model("Item", itemSchema);
