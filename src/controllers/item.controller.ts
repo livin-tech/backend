@@ -211,6 +211,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         toReturn.push({
           ...category,
           items: itemsToPush.map((item) => ({
+            id: item._id,
             name: item.name,
             category: item.category,
             subCategory: item.subCategory,
