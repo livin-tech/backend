@@ -174,7 +174,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
       },
       {
         id: Math.random().toString(36).substring(2, 15),
-        name: "Bed Room",
+        name: "Bedroom",
         category: "CLEANING",
         subCategory: "BED ROOM",
         description:
@@ -197,6 +197,15 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         subCategory: "KITCHEN",
         description:
           "THE KITCHEN IS A COMPLEX AREA, FULL OF LARGE AND SMALL APPLIANCES BUT IT IS ALSO THE PLACE WHERE WE PREPARE OUR DAILY FOOD. THIS AREA, DUE TO ITS HIGH TRAFFIC AND VARIETY OF MATERIALS AND PRODUCTS, CAN BE OVERWHELMING WHEN IT IS DEEP CLEANING. IT IS VITAL TO ESTABLISH A CARE ROUTINE IN THIS AREA OF THE HOME SO THAT IT LOOKS AND FUNCTIONS PROPERLY.",
+        image: `https://${req.get("host")}/assets/kitchen.png`,
+      },
+      {
+        id: Math.random().toString(36).substring(2, 15),
+        name: "OTHER SPACES",
+        category: "CLEANING",
+        subCategory: "OTHER SPACES",
+        description:
+          "EVERY HOME IS A WORLD, EVERY HOME HAS DIFFERENT AREAS AND SPACES. ATTENDING EVERY CORNER OF YOUR HOME IS A PRIORITY. AREAS SUCH AS BALCONIES, OUTDOOR AREAS OR EQUIPMENT ROOMS OR WORK AREA, ARE MANY TIMES LEFT FOR LAST IN THE TO-DO LIST. HERE WE SHOW YOU THAT EACH AREA SHOULD BE CARED FOR EQUALLY, TO GUARANTEE A COMPREHENSIVE, CAREFUL HOME WITH LITTLE DETERIORATION.",
         image: `https://${req.get("host")}/assets/kitchen.png`,
       },
     ];
