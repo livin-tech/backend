@@ -13,7 +13,7 @@ export class PropertyRepository {
   }
 
   // Get all properties
-  async getAllProperties(): Promise<IProperty[]> {
+  async getAllProperties() {
     const properties = await PropertyModel.aggregate([
       {
         // Look up reminders for each property
@@ -37,7 +37,7 @@ export class PropertyRepository {
         },
       },
     ]);
-    return PropertyModel.find().populate("owner");
+    return PropertyModel.populate(properties, { path: "owner" });
   }
 
   // Update a property
