@@ -11,7 +11,7 @@ const createReminderSchema = z.object({
   material: z.string().length(24, "Material ID must be a valid ObjectId"),
   itemQuantity: z.number().min(1, "Item quantity must be at least 1"),
   selectedFrequency: z.number().min(1, "Selected frequency must be at least 1"),
-  lastMaintenance: z.date().nullable(),
+  lastMaintenance: z.string().nullable().optional(),
   startDate: z.string(),
 });
 

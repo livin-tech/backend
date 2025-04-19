@@ -12,7 +12,7 @@ export interface IReminder extends Document {
   material: Types.ObjectId;
   itemQuantity: number;
   selectedFrequency: number;
-  lastMaintenance: string | null;
+  lastMaintenance?: string | null;
   startDate: string;
   description?: string;
 }
@@ -51,6 +51,7 @@ const reminderSchema = new Schema<IReminder>(
     },
     lastMaintenance: {
       type: String,
+      required: false,
       default: null, // Can be null if no maintenance has been done
     },
     startDate: {
