@@ -17,6 +17,8 @@ export interface IProperty extends Document {
   description: string;
   price: number;
   location: string;
+  size: number;
+  sizeUnit: "m2" | "ft2";
   owner: Types.ObjectId; // reference to the User model
 }
 
@@ -96,6 +98,15 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
   },
   managerPhone: {
     type: String,
+    required: false,
+  },
+  size: {
+    type: Number,
+    required: false,
+  },
+  sizeUnit: {
+    type: String,
+    enum: ["m2", "ft2"],
     required: false,
   },
 });
