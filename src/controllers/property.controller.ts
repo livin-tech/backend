@@ -22,7 +22,7 @@ const propertySchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().optional(),
   size: z.number().optional(),
-  sizeUnit: z.enum(["m2", "ft2"]).optional(),
+  sizeUnit: z.enum(["MT²", "FT²"]).optional(),
   price: z.number().optional(),
   location: z.string().optional(),
   owner: z.string().length(24, "Owner ID must be a valid ObjectId"),
