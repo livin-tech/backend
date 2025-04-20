@@ -13,6 +13,7 @@ const createReminderSchema = z.object({
   selectedFrequency: z.number().min(1, "Selected frequency must be at least 1"),
   lastMaintenance: z.string().nullable().optional(),
   startDate: z.string(),
+  selectedRooms: z.array(z.string()).optional(),
 });
 
 // Controller to create a reminder

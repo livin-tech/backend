@@ -15,6 +15,7 @@ export interface IReminder extends Document {
   lastMaintenance?: string | null;
   startDate: string;
   description?: string;
+  selectedRooms?: string[];
 }
 
 const reminderSchema = new Schema<IReminder>(
@@ -60,6 +61,10 @@ const reminderSchema = new Schema<IReminder>(
     },
     description: {
       type: String,
+      required: false,
+    },
+    selectedRooms: {
+      type: [String],
       required: false,
     },
   },
