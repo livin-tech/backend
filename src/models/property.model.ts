@@ -1,5 +1,13 @@
 import mongoose, { type Document, type Schema, type Types } from "mongoose";
 
+// Define the interface for the country code object
+export interface ICountryCode {
+  name: { en: string; es: string };
+  dial_code: string;
+  code: string;
+  flag: string;
+}
+
 export interface IProperty extends Document {
   type: string;
   rooms: number;
@@ -20,6 +28,9 @@ export interface IProperty extends Document {
   size: number;
   sizeUnit: "MT²" | "FT²";
   owner: Types.ObjectId; // reference to the User model
+  managerName: string;
+  managerPhone: string;
+  managerCountryCode?: string | ICountryCode;
 }
 
 const propertySchema: Schema<IProperty> = new mongoose.Schema({
@@ -107,6 +118,10 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
   sizeUnit: {
     type: String,
     enum: ["MT²", "FT²"],
+    required: false,
+  },
+  managerCountryCode: {
+    type: mongoose.Schema.Types.Mixed, // Accepts any type (string or object)
     required: false,
   },
 });

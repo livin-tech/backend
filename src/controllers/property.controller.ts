@@ -5,6 +5,17 @@ import logger from "../config/logger";
 // Adjust the path as needed
 import { PropertyRepository } from "../repository/property.repository";
 
+// Add this above propertySchema
+const countryCodeSchema = z.object({
+  name: z.object({
+    en: z.string(),
+    es: z.string(),
+  }),
+  dial_code: z.string(),
+  code: z.string(),
+  flag: z.string(),
+});
+
 // Define Zod schema for property validation
 const propertySchema = z.object({
   type: z.string().min(1, "Type is required"),
@@ -28,6 +39,7 @@ const propertySchema = z.object({
   owner: z.string().length(24, "Owner ID must be a valid ObjectId"),
   managerName: z.string().optional(),
   managerPhone: z.string().optional(),
+  managerCountryCode: z.union([z.string(), countryCodeSchema]).optional(),
 });
 
 export class PropertyController {
