@@ -147,9 +147,9 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
       },
       {
         id: Math.random().toString(36).substring(2, 15),
-        name: "Dinning Room",
+        name: "Dining Room",
         category: "CLEANING",
-        subCategory: "DINNING ROOM",
+        subCategory: "DINING ROOM",
         description:
           "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it. Therefore, it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
         image: `https://${req.get("host")}/assets/dinning.png`,
@@ -169,16 +169,16 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "FAMILY ROOM",
         description:
-          "THE FAMILY ROOM IS AN AREA OF HIGH TRAFFIC AND HOME USE, WHERE YOU SPEND LONG PERIODS OF TIME IN VARIOUS ACTIVITIES, THIS AREA SUFFERS GREATER DAMAGES SINCE IT IS ALMOST ALWAYS DESIGNED FOR EVERYDAY LIFE WITHOUT MAJOR RESTRICTIONS. THE CARE WE GIVE TO THIS AREA WILL ENSURE THAT IT NEVER LOOKS DAMAGED COMPARED TO THE REST OF OUR HOME.",
+          "The family room is an area of high traffic and home use, where you spend long periods of time in various activities, this area suffers greater damages since it is almost always designed for everyday life without major restrictions. The care we give to this area will ensure that it never looks damaged compared to the rest of our home.",
         image: `https://${req.get("host")}/assets/family-room.png`,
       },
       {
         id: Math.random().toString(36).substring(2, 15),
         name: "Bedroom",
         category: "CLEANING",
-        subCategory: "BED ROOM",
+        subCategory: "BEDROOM",
         description:
-          "BEDROOMS ARE SPACES DESIGNED FOR REST AND THEREFORE THEY MUST BE CLEAN AND ORGANIZED TO PROVIDE THAT THE BODY HAS A RESTORABLE AND HEALTHY SLEEP. THE DEEP CLEANING TIMES IN THIS AREA ARE VERY IMPORTANT SINCE WE REMAIN IN IT FOR LONG PERIODS OF TIME EVERY NIGHT.",
+          "Bedrooms are spaces designed for rest and therefore they must be clean and organized so that the body has a restorable and healthy sleep. The deep cleaning times in this area are very important since we remain in it for long periods of time every night.",
         image: `https://${req.get("host")}/assets/bed-room.png`,
       },
       {
@@ -187,7 +187,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "BATHROOM",
         description:
-          "BATHROOMS ARE CLEANING AREAS THAT MANY THINK THAT BECAUSE THEY ARE CLEANED DAILY THEY SHOULD NOT BE DONE IN A DEEPER WAY. IN THESE AREAS WE SHOULD TAKE GREATER CARE SINCE THEY ARE AREAS WHERE BACTERIA AND OTHER GERMES INVISIBLE TO OUR EYES ARE PRESENT.",
+          "Bathrooms are cleaning areas that many think that because they are cleaned daily they should not be done in a deeper way. In these areas we should take greater care since they are areas where bacteria and other germs invisible to our eyes are present.",
         image: `https://${req.get("host")}/assets/bathroom.png`,
       },
       {
@@ -196,16 +196,16 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "KITCHEN",
         description:
-          "THE KITCHEN IS A COMPLEX AREA, FULL OF LARGE AND SMALL APPLIANCES BUT IT IS ALSO THE PLACE WHERE WE PREPARE OUR DAILY FOOD. THIS AREA, DUE TO ITS HIGH TRAFFIC AND VARIETY OF MATERIALS AND PRODUCTS, CAN BE OVERWHELMING WHEN IT IS DEEP CLEANING. IT IS VITAL TO ESTABLISH A CARE ROUTINE IN THIS AREA OF THE HOME SO THAT IT LOOKS AND FUNCTIONS PROPERLY.",
+          "The kitchen is a complex area, full of large and small appliances but it is also the place where we prepare our daily food. This area, due to its high traffic and variety of materials and products, can be overwhelming when it is deep cleaning. It is vital to establish a care routine in this area of the home so that it looks and functions properly.",
         image: `https://${req.get("host")}/assets/kitchen.png`,
       },
       {
         id: Math.random().toString(36).substring(2, 15),
-        name: "OTHER SPACES",
+        name: "Other Spaces",
         category: "CLEANING",
         subCategory: "OTHER SPACES",
         description:
-          "EVERY HOME IS A WORLD, EVERY HOME HAS DIFFERENT AREAS AND SPACES. ATTENDING EVERY CORNER OF YOUR HOME IS A PRIORITY. AREAS SUCH AS BALCONIES, OUTDOOR AREAS OR EQUIPMENT ROOMS OR WORK AREA, ARE MANY TIMES LEFT FOR LAST IN THE TO-DO LIST. HERE WE SHOW YOU THAT EACH AREA SHOULD BE CARED FOR EQUALLY, TO GUARANTEE A COMPREHENSIVE, CAREFUL HOME WITH LITTLE DETERIORATION.",
+          "Every home is a world, every home has different areas and spaces. Attending every corner of your home is a priority. Areas such as balconies, outdoor areas or equipment rooms or work area, are many times left for last in the to-do list. Here we show you that each area should be cared for equally, to guarantee a comprehensive, careful home with little deterioration.",
         image: `https://${req.get("host")}/assets/kitchen.png`,
       },
     ];
