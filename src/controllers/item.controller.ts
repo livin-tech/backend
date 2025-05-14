@@ -142,7 +142,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "LIVING ROOM",
         description:
-          "The furniture that we use daily in our living area must be cared for in very specific ways and at very precise times. Only in this way can you guarantee that it is in perfect condition and that the different materials are conserved in an ideal manner.",
+          "The furniture that we use daily in our living area must be cared for in very specific ways and at very precise times, only in this way can you guarantee that it is in perfect condition and that the different materials are conserved in an ideal manner.",
         image: `https://${req.get("host")}/assets/living.png`,
       },
       {
@@ -151,7 +151,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "DINING ROOM",
         description:
-          "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it. Therefore, it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
+          "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it, therefore it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
         image: `https://${req.get("host")}/assets/dinning.png`,
       },
       {
@@ -160,7 +160,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "HALLWAY",
         description:
-          "The hallways or access corridors to the most private areas of our house are normally overlooked in deep cleaning. This transit area has high traffic, so it must be cared for periodically.",
+          "The hallways or access corridors to the most private areas of our house are normally overlooked in deep cleaning, and this transit area has high traffic, so it must be cared for periodically.",
         image: `https://${req.get("host")}/assets/hallway.png`,
       },
       {
@@ -174,7 +174,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
       },
       {
         id: Math.random().toString(36).substring(2, 15),
-        name: "Bedroom",
+        name: "Bedrooms",
         category: "CLEANING",
         subCategory: "BEDROOM",
         description:
@@ -183,7 +183,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
       },
       {
         id: Math.random().toString(36).substring(2, 15),
-        name: "Bathroom",
+        name: "Bathrooms",
         category: "CLEANING",
         subCategory: "BATHROOM",
         description:
@@ -205,7 +205,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "OTHER SPACES",
         description:
-          "Every home is a world, every home has different areas and spaces. Attending every corner of your home is a priority. Areas such as balconies, outdoor areas or equipment rooms or work area, are many times left for last in the to-do list. Here we show you that each area should be cared for equally, to guarantee a comprehensive, careful home with little deterioration.",
+          "Every home is a world, every home has different areas and spaces. Attending every corner of your home is a priority. Areas such as balconies, outdoor Areas or equipment rooms or work area, are many times left for last in the to-do list. Here we show you that each area should be cared for equally, to guarantee a comprehensive, careful home with little deterioration.",
         image: `https://${req.get("host")}/assets/kitchen.png`,
       },
     ];
