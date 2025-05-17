@@ -151,7 +151,7 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         category: "CLEANING",
         subCategory: "DINING ROOM",
         description:
-          "The dining area is used daily, and its deterioration is always greater than other spaces in the house since we serve food in it, therefore it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
+          "The dining area is used daily, and its deterioration is always greater than other spaces in the house, since we serve food in it, therefore it is a place requiring special care, which we often attend to only when it is too late. Cleaning and maintenance in this area require great attention.",
         image: `https://${req.get("host")}/assets/dinning.png`,
       },
       {
