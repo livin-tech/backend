@@ -1,4 +1,5 @@
 import mongoose, { type Document, type Schema } from "mongoose";
+import type { ICountryCode } from "./property.model";
 
 export interface IUser extends Document {
   firstName: string;
@@ -10,6 +11,8 @@ export interface IUser extends Document {
   address: string;
   subscriptionStatus: "essential" | "pro";
   hasOnboarded: boolean;
+  userPhone?: string;
+  userCountryCode?: string | ICountryCode;
 }
 
 const userSchema: Schema<IUser> = new mongoose.Schema({
@@ -52,6 +55,14 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
   hasOnboarded: {
     type: Boolean,
     default: false,
+  },
+  userPhone: {
+    type: String,
+    required: false,
+  },
+  userCountryCode: {
+    type: mongoose.Schema.Types.Mixed, // Accepts any type (string or object)
+    required: false,
   },
 });
 

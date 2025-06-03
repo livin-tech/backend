@@ -4,6 +4,16 @@ import { z } from "zod";
 import logger from "../config/logger";
 import { UserRepository } from "../repository/user.repository";
 
+const countryCodeSchema = z.object({
+  name: z.object({
+    en: z.string(),
+    es: z.string(),
+  }),
+  dial_code: z.string(),
+  code: z.string(),
+  flag: z.string(),
+});
+
 // Define Zod schema for user validation
 const userSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -11,6 +21,8 @@ const userSchema = z.object({
   email: z.string().email("Invalid email address"),
   firebaseID: z.string(),
   phoneNumber: z.string().optional(),
+  userPhone: z.string().optional(),
+  userCountryCode: z.union([z.string(), countryCodeSchema]).optional(),
   address: z.string().optional(),
   subscriptionStatus: z.enum(["essential", "pro"]).optional(),
   role: z.enum(["user", "admin"]).optional(),

@@ -2,10 +2,9 @@ import type { Request, Response } from "express";
 import { z } from "zod";
 
 import logger from "../config/logger";
-// Adjust the path as needed
+
 import { PropertyRepository } from "../repository/property.repository";
 
-// Add this above propertySchema
 const countryCodeSchema = z.object({
   name: z.object({
     en: z.string(),
