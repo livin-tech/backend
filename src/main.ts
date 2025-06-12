@@ -1,4 +1,4 @@
-import * as dotenv from "dotenv";
+import "dotenv/config";
 /**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
@@ -10,9 +10,6 @@ import express from "express";
 
 import { connectToDatabase } from "./database/data-source";
 import apiRouter from "./routes";
-
-// Load environment variables from .env file as early as possible
-dotenv.config();
 
 const app = express();
 

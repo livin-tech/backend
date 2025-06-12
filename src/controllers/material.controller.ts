@@ -7,8 +7,10 @@ const materialRepository = new MaterialRepository();
 
 // Zod schema for material validation
 const materialSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  name: z.string().optional(),
   description: z.string().optional(),
+  nameEN: z.string().optional(),
+  nameES: z.string().optional(),
 });
 
 // Controller: Create a Material
@@ -24,10 +26,10 @@ export const createMaterial = async (req: Request, res: Response) => {
       });
     }
 
-    const { name, description } = result.data;
+    const { name, nameEN, nameES } = result.data;
 
     // Create a new material using the repository
-    const newMaterial = await materialRepository.createMaterial({ name, description });
+    const newMaterial = await materialRepository.createMaterial({ name, nameEN, nameES });
     return res.status(201).json(newMaterial);
   } catch (error) {
     console.error(error); // For debugging purposes
