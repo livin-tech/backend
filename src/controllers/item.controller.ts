@@ -5,7 +5,7 @@ import { ItemRepository } from "../repository/item.repository";
 
 // Importing categories from mocks
 // TODO: Move this to database
-import { getCategories } from "@/mocks";
+import { getCategories } from "../mocks";
 
 const itemRepository = new ItemRepository();
 
