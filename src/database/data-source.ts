@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-import { config } from "@/config";
+import { config } from "../config";
 
 // Load environment variables from .env file
 dotenv.config();
