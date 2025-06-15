@@ -2,7 +2,7 @@ import { Material } from "../models/material.model"; // Assuming you have a Mate
 
 export class MaterialRepository {
   // Create a new material
-  async createMaterial(data: { name?: string; nameEN?: string; nameES?: string }) {
+  async createMaterial(data: { name?: string; nameEN?: string; nameES?: string; suggestedFrequency?: number }) {
     return await Material.create(data);
   }
 
@@ -17,7 +17,10 @@ export class MaterialRepository {
   }
 
   // Update a material by its ID
-  async updateMaterial(id: string, data: { name?: string; nameEN?: string; nameES?: string }) {
+  async updateMaterial(
+    id: string,
+    data: { name?: string; nameEN?: string; nameES?: string; suggestedFrequency?: number },
+  ) {
     return await Material.findByIdAndUpdate(id, data, { new: true });
   }
 

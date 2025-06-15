@@ -11,6 +11,7 @@ const materialSchema = z.object({
   description: z.string().optional(),
   nameEN: z.string().optional(),
   nameES: z.string().optional(),
+  suggestedFrequency: z.number().optional(),
 });
 
 // Controller: Create a Material
@@ -26,10 +27,10 @@ export const createMaterial = async (req: Request, res: Response) => {
       });
     }
 
-    const { name, nameEN, nameES } = result.data;
+    const { name, nameEN, nameES, suggestedFrequency } = result.data;
 
     // Create a new material using the repository
-    const newMaterial = await materialRepository.createMaterial({ name, nameEN, nameES });
+    const newMaterial = await materialRepository.createMaterial({ name, nameEN, nameES, suggestedFrequency });
     return res.status(201).json(newMaterial);
   } catch (error) {
     console.error(error); // For debugging purposes
