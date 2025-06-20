@@ -11,16 +11,32 @@ const itemRepository = new ItemRepository();
 
 // Zod schema for item creation
 const createItemSchema = z.object({
-  name: z.string().min(1, "Item name is required"),
-  category: z.enum(["CLEANING", "MAINTENANCE"], "Invalid category"),
+  name: z.object({
+    en: z.string().min(1, "Item name is required"),
+    es: z.string().min(1, "Item name is required"),
+  }),
+  category: z.enum(["CLEANING", "MAINTENANCE"]),
+  categoryEn: z.enum(["Cleaning", "Maintenance"]),
+  categoryEs: z.enum(["Limpieza", "Mantenimiento"]),
+  subCategory: z.string().optional(),
+  subCategoryEn: z.string().optional(),
+  subCategoryEs: z.string().optional(),
   image: z.string().url("Invalid image URL"),
   materials: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
 });
 
 // Zod schema for item update
 const updateItemSchema = z.object({
-  name: z.string().optional(),
+  name: z.object({
+    en: z.string().optional(),
+    es: z.string().optional(),
+  }),
   category: z.enum(["CLEANING", "MAINTENANCE"]).optional(),
+  categoryEn: z.enum(["Cleaning", "Maintenance"]).optional(),
+  categoryEs: z.enum(["Limpieza", "Mantenimiento"]).optional(),
+  subCategory: z.string().optional(),
+  subCategoryEn: z.string().optional(),
+  subCategoryEs: z.string().optional(),
   image: z.string().url().optional(),
   materials: z.array(z.string().length(24, "Each material ID must be a valid ObjectId")).optional(),
 });
@@ -132,14 +148,18 @@ export const getCategoriesWithItems = async (req: Request, res: Response) => {
         itemsToPush.sort((a: any, b: any) => a.order - b.order);
         toReturn.push({
           ...category,
-          items: itemsToPush.map((item: any) => ({
+          items: itemsToPush.map((item: IItem) => ({
             id: item._id,
             name: item.name,
-            category: item.category,
-            subCategory: item.subCategory,
-            image: `https://${req.get("host")}/assets/${item.image}`,
-            materials: item.materials,
             order: item.order,
+            category: item.category,
+            materials: item.materials,
+            categoryEn: item.categoryEn,
+            categoryEs: item.categoryEs,
+            subCategory: item.subCategory,
+            subCategoryEn: item.subCategoryEn,
+            subCategoryEs: item.subCategoryEs,
+            image: `https://${req.get("host")}/assets/${item.image}`,
           })),
         });
         items = items.filter((item: any) => !itemsToPush.map((x: any) => x._id).includes(item._id));
