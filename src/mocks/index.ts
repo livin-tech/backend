@@ -7,7 +7,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Maintenance",
     nameES: "Mantenimiento",
     category: "MAINTENANCE",
+    categoryEn: "Maintenance",
+    categoryEs: "Mantenimiento",
     subCategory: "MAINTENANCE",
+    subCategoryEn: "Maintenance",
+    subCategoryEs: "Mantenimiento",
     descriptionEN:
       "The maintenance of floors, windows, electronic equipment, air conditioning and appliances should be done preventively, if we do it on a regular basis, we will guarantee not only better operation but a longer useful life.",
     descriptionES:
@@ -20,7 +24,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Deep Cleaning",
     nameES: "Limpieza Profunda",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "DEEP CLEANING",
+    subCategoryEn: "Deep Cleaning",
+    subCategoryEs: "Limpieza Profunda",
     descriptionEN:
       "Deep cleaning is something we take many times for granted, since we only focus on daily cleaning. However, it is very important to keep in mind that many areas of our home are not cleaned on a regular basis and this is why after a certain time the appearance of certain areas of the house start to look damaged.",
     descriptionES:
@@ -33,7 +41,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Living Room",
     nameES: "Sala de Estar",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "LIVING ROOM",
+    subCategoryEn: "Living Room",
+    subCategoryEs: "Sala de Estar",
     descriptionEN:
       "The furniture that we use daily in our living area must be cared for in very specific ways and at very precise times, only in this way you can guarantee that it is in perfect condition and that the different materials are conserved in an ideal manner.",
     descriptionES:
@@ -46,7 +58,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Dining Room",
     nameES: "Comedor",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "DINING ROOM",
+    subCategoryEn: "Dining Room",
+    subCategoryEs: "Comedor",
     descriptionEN:
       "The dining area is used daily, and its deterioration is always greater than other spaces of the house since we serve food on it. Therefore it is a place that requires special care, which we often attend to only when it is too late. Cleaning and maintenance in this area requires great attention.",
     descriptionES:
@@ -59,7 +75,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Hallway",
     nameES: "Pasillo",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "HALLWAY",
+    subCategoryEn: "Hallway",
+    subCategoryEs: "Pasillo",
     descriptionEN:
       "The hallways or access corridors to the most private areas of our house are normally overlooked in deep cleaning, and this transit area has high traffic, so it must be cared periodically.",
     descriptionES:
@@ -72,7 +92,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Family Room",
     nameES: "Sala Familiar",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "FAMILY ROOM",
+    subCategoryEn: "Family Room",
+    subCategoryEs: "Sala Familiar",
     descriptionEN:
       "The family room is an area of high traffic, where you spend long periods of time in various activities, this area suffers greater damage since it is almost always designed for everyday life without major restrictions. The care we give to this area will ensure that it never looks damaged compared to the rest of our home.",
     descriptionES:
@@ -85,7 +109,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Bedrooms",
     nameES: "Dormitorios",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "BEDROOM",
+    subCategoryEn: "Bedroom",
+    subCategoryEs: "Dormitorio",
     descriptionEN:
       "Bedrooms are spaces designed for rest and therefore they must be clean and organized so that the body has a restorable and healthy sleep. The deep cleaning times in this area are very important since we remain in it for long periods of time every night.",
     descriptionES:
@@ -98,7 +126,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Bathrooms",
     nameES: "Baños",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "BATHROOM",
+    subCategoryEn: "Bathroom",
+    subCategoryEs: "Baño",
     descriptionEN:
       "Bathrooms are cleaning areas that many think that because they are cleaned daily they should not be done in a deeper way. In these areas we should take greater care because invisible bacteria and other germs to our eyes are constantly present.",
     descriptionES:
@@ -111,7 +143,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Kitchen",
     nameES: "Cocina",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "KITCHEN",
+    subCategoryEn: "Kitchen",
+    subCategoryEs: "Cocina",
     descriptionEN:
       "The kitchen is a complex area, full of large and small appliances but it is also the place where we prepare our daily food. This area, due to its high traffic and variety of materials and products, can be overwhelming when its time for a deep clean routine. It is vital to establish a care routine in this area of the home so that it looks and functions properly.",
     descriptionES:
@@ -124,7 +160,11 @@ export const getCategories = (req: Request) => [
     nameEN: "Other Spaces",
     nameES: "Otros Espacios",
     category: "CLEANING",
+    categoryEn: "Cleaning",
+    categoryEs: "Limpieza",
     subCategory: "OTHER SPACES",
+    subCategoryEn: "Other Spaces",
+    subCategoryEs: "Otros Espacios",
     descriptionEN:
       "Every home is a unique world, every home has different areas and spaces. Attending every corner of your home is a priority. Areas such as balconies, outdoor, equipment rooms or even workstations are many times left at the end of a to-do list. Here we show you that each area should be cared equally, to guarantee a comprehensive, careful home with little deterioration.",
     descriptionES:
